@@ -8,7 +8,7 @@ An API is also provided for polling programmatically, which is extensible for as
 
 ## Install
 
-`pip install fastgpu`
+Either `pip install fastgpu` or `conda install -c fastai fastgpu`.
 
 ## How to use
 

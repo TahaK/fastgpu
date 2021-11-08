@@ -2,6 +2,7 @@
 
 title: fastgpu
 
+
 keywords: fastai
 sidebar: home_sidebar
 
@@ -90,13 +91,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -104,7 +98,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="setup_dirs" class="doc_header"><code>setup_dirs</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L12" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>setup_dirs</code>(<strong><code>path</code></strong>)</p>
+<h4 id="setup_dirs" class="doc_header"><code>setup_dirs</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L15" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>setup_dirs</code>(<strong><code>path</code></strong>)</p>
 </blockquote>
 <p>Create and return the following subdirs of <code>path</code>: to_run running complete fail out</p>
 
@@ -114,6 +108,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -205,13 +206,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -219,7 +213,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="find_next_script" class="doc_header"><code>find_next_script</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L20" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>find_next_script</code>(<strong><code>p</code></strong>)</p>
+<h4 id="find_next_script" class="doc_header"><code>find_next_script</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L23" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>find_next_script</code>(<strong><code>p</code></strong>)</p>
 </blockquote>
 <p>Get the first script from <code>p</code> (in sorted order)</p>
 
@@ -229,6 +223,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -255,13 +256,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -269,7 +263,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="safe_rename" class="doc_header"><code>safe_rename</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L26" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>safe_rename</code>(<strong><code>file</code></strong>, <strong><code>dest</code></strong>)</p>
+<h4 id="safe_rename" class="doc_header"><code>safe_rename</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L29" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>safe_rename</code>(<strong><code>file</code></strong>, <strong><code>dest</code></strong>)</p>
 </blockquote>
 <p>Move <code>file</code> to <code>dest</code>, prefixing a random uuid if there's a name conflict</p>
 
@@ -301,7 +295,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ResourcePoolBase" class="doc_header"><code>class</code> <code>ResourcePoolBase</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L37" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolBase</code>(<strong><code>path</code></strong>)</p>
+<h2 id="ResourcePoolBase" class="doc_header"><code>class</code> <code>ResourcePoolBase</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L40" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolBase</code>(<strong><code>path</code></strong>)</p>
 </blockquote>
 <p>Base class for locked access to list of idents</p>
 
@@ -322,13 +316,6 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This abstract class locks and unlocks resources using lockfiles. Override <code>all_ids</code> to make the list of resources available. See <a href="/fastgpu/core.html#FixedWorkerPool"><code>FixedWorkerPool</code></a> for a simple example and details on each method.</p>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -336,6 +323,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This abstract class locks and unlocks resources using lockfiles. Override <code>all_ids</code> to make the list of resources available. See <a href="/core.html#FixedWorkerPool"><code>FixedWorkerPool</code></a> for a simple example and details on each method.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -347,7 +341,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="FixedWorkerPool" class="doc_header"><code>class</code> <code>FixedWorkerPool</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L101" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FixedWorkerPool</code>(<strong><code>worker_ids</code></strong>, <strong><code>path</code></strong>) :: <a href="/fastgpu/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
+<h2 id="FixedWorkerPool" class="doc_header"><code>class</code> <code>FixedWorkerPool</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L104" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FixedWorkerPool</code>(<strong><code>worker_ids</code></strong>, <strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
 </blockquote>
 <p>Vends locked access to fixed list of idents</p>
 
@@ -361,9 +355,16 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The simplest possible <a href="/fastgpu/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a> subclass - the resources are just a list of ids. For instance:</p>
+<p>The simplest possible <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a> subclass - the resources are just a list of ids. For instance:</p>
 
 </div>
 </div>
@@ -397,7 +398,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.unlock" class="doc_header"><code>ResourcePoolBase.unlock</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L45" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.unlock</code>(<strong><code>ident</code></strong>)</p>
+<h4 id="ResourcePoolBase.unlock" class="doc_header"><code>ResourcePoolBase.unlock</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L48" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.unlock</code>(<strong><code>ident</code></strong>)</p>
 </blockquote>
 <p>Remove lockfile for <code>ident</code></p>
 
@@ -446,7 +447,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.find_next" class="doc_header"><code>ResourcePoolBase.find_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L48" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.find_next</code>()</p>
+<h4 id="ResourcePoolBase.find_next" class="doc_header"><code>ResourcePoolBase.find_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L51" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.find_next</code>()</p>
 </blockquote>
 <p>Finds next available resource, or None</p>
 
@@ -495,7 +496,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.lock" class="doc_header"><code>ResourcePoolBase.lock</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L44" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock</code>(<strong><code>ident</code></strong>, <strong><code>txt</code></strong>=<em><code>'locked'</code></em>)</p>
+<h4 id="ResourcePoolBase.lock" class="doc_header"><code>ResourcePoolBase.lock</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L47" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock</code>(<strong><code>ident</code></strong>, <strong><code>txt</code></strong>=<em><code>'locked'</code></em>)</p>
 </blockquote>
 <p>Create lockfile for <code>ident</code></p>
 
@@ -545,7 +546,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.lock_next" class="doc_header"><code>ResourcePoolBase.lock_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock_next</code>()</p>
+<h4 id="ResourcePoolBase.lock_next" class="doc_header"><code>ResourcePoolBase.lock_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock_next</code>()</p>
 </blockquote>
 <p>Locks an available resource and returns its ident, or None</p>
 
@@ -595,7 +596,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.run" class="doc_header"><code>ResourcePoolBase.run</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L73" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.run</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="ResourcePoolBase.run" class="doc_header"><code>ResourcePoolBase.run</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L76" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.run</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Run <code>script</code> using resource <code>ident</code></p>
 
@@ -661,7 +662,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.poll_scripts" class="doc_header"><code>ResourcePoolBase.poll_scripts</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.poll_scripts</code>(<strong><code>poll_interval</code></strong>=<em><code>0.1</code></em>, <strong><code>exit_when_empty</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="ResourcePoolBase.poll_scripts" class="doc_header"><code>ResourcePoolBase.poll_scripts</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L80" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.poll_scripts</code>(<strong><code>poll_interval</code></strong>=<em><code>0.1</code></em>, <strong><code>exit_when_empty</code></strong>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Poll <code>to_run</code> for scripts and run in parallel on available resources</p>
 
@@ -711,13 +712,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -725,7 +719,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ResourcePoolGPU" class="doc_header"><code>class</code> <code>ResourcePoolGPU</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L112" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolGPU</code>(<strong><code>path</code></strong>) :: <a href="/fastgpu/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
+<h2 id="ResourcePoolGPU" class="doc_header"><code>class</code> <code>ResourcePoolGPU</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L115" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolGPU</code>(<strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
 </blockquote>
 <p>Vends locked access to NVIDIA GPUs</p>
 
@@ -735,6 +729,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -759,7 +760,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is a resource pool that uses <a href="https://pypi.org/project/pynvml/">pynvml</a> to find GPUs that aren't being used (based on whether they have memory allocated). It is implemented by overriding two methods from <a href="/fastgpu/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a>. Usage is identical to <a href="/fastgpu/core.html#FixedWorkerPool"><code>FixedWorkerPool</code></a>, except that you don't need to pass in <code>worker_ids</code>, since available GPUs are considered to be the resource pool.</p>
+<p>This is a resource pool that uses <a href="https://pypi.org/project/pynvml/">pynvml</a> to find GPUs that aren't being used (based on whether they have memory allocated). It is implemented by overriding two methods from <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a>. Usage is identical to <a href="/core.html#FixedWorkerPool"><code>FixedWorkerPool</code></a>, except that you don't need to pass in <code>worker_ids</code>, since available GPUs are considered to be the resource pool.</p>
 
 </div>
 </div>
@@ -775,7 +776,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolGPU.is_available" class="doc_header"><code>ResourcePoolGPU.is_available</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L135" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.is_available</code>(<strong><code>ident</code></strong>)</p>
+<h4 id="ResourcePoolGPU.is_available" class="doc_header"><code>ResourcePoolGPU.is_available</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L138" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.is_available</code>(<strong><code>ident</code></strong>)</p>
 </blockquote>
 <p>If a GPU's used_memory is less than 1G and is running no procs then it will be regarded as available</p>
 
@@ -800,7 +801,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolGPU.all_ids" class="doc_header"><code>ResourcePoolGPU.all_ids</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L142" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.all_ids</code>()</p>
+<h4 id="ResourcePoolGPU.all_ids" class="doc_header"><code>ResourcePoolGPU.all_ids</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L145" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.all_ids</code>()</p>
 </blockquote>
 <p>All GPUs</p>
 
