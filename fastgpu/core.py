@@ -10,6 +10,7 @@ from pynvml import *
 from fastcore.nb_imports import *
 from threading import Thread
 import subprocess
+from uuid import uuid4
 
 # Cell
 def setup_dirs(path):
