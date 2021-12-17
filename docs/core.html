@@ -341,7 +341,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="FixedWorkerPool" class="doc_header"><code>class</code> <code>FixedWorkerPool</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L105" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FixedWorkerPool</code>(<strong><code>worker_ids</code></strong>, <strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
+<h2 id="FixedWorkerPool" class="doc_header"><code>class</code> <code>FixedWorkerPool</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L116" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>FixedWorkerPool</code>(<strong><code>worker_ids</code></strong>, <strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
 </blockquote>
 <p>Vends locked access to fixed list of idents</p>
 
@@ -447,7 +447,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.find_next" class="doc_header"><code>ResourcePoolBase.find_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.find_next</code>()</p>
+<h4 id="ResourcePoolBase.find_next" class="doc_header"><code>ResourcePoolBase.find_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L52" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.find_next</code>(<strong><code>n</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Finds next available resource, or None</p>
 
@@ -475,7 +475,7 @@ nb_path: "00_core.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -525,7 +525,7 @@ nb_path: "00_core.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wp</span><span class="o">.</span><span class="n">lock</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -546,7 +546,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.lock_next" class="doc_header"><code>ResourcePoolBase.lock_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L53" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock_next</code>()</p>
+<h4 id="ResourcePoolBase.lock_next" class="doc_header"><code>ResourcePoolBase.lock_next</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L61" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.lock_next</code>(<strong><code>n</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Locks an available resource and returns its ident, or None</p>
 
@@ -575,7 +575,7 @@ nb_path: "00_core.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">wp</span><span class="o">.</span><span class="n">lock_next</span><span class="p">()</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">(</span><span class="n">wp</span><span class="o">.</span><span class="n">find_next</span><span class="p">(),</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 
     </div>
@@ -596,7 +596,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.run" class="doc_header"><code>ResourcePoolBase.run</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L77" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.run</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="ResourcePoolBase.run" class="doc_header"><code>ResourcePoolBase.run</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L88" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.run</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
 </blockquote>
 <p>Run <code>script</code> using resource <code>ident</code></p>
 
@@ -637,7 +637,7 @@ nb_path: "00_core.ipynb"
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">_setup_test_env</span><span class="p">()</span>
 <span class="n">f</span> <span class="o">=</span> <span class="n">find_next_script</span><span class="p">(</span><span class="n">path_run</span><span class="p">)</span>
-<span class="n">wp</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">wp</span><span class="o">.</span><span class="n">_run</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="n">test_eq</span><span class="p">(</span><span class="n">find_next_script</span><span class="p">(</span><span class="n">path_run</span><span class="p">),</span> <span class="n">path_run</span><span class="o">/</span><span class="s1">&#39;script_succ.sh&#39;</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">((</span><span class="n">path_out</span><span class="o">/</span><span class="s1">&#39;script_fail.sh.exitcode&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="s1">&#39;1&#39;</span><span class="p">)</span>
@@ -662,7 +662,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolBase.poll_scripts" class="doc_header"><code>ResourcePoolBase.poll_scripts</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L81" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.poll_scripts</code>(<strong><code>poll_interval</code></strong>=<em><code>0.1</code></em>, <strong><code>exit_when_empty</code></strong>=<em><code>True</code></em>)</p>
+<h4 id="ResourcePoolBase.poll_scripts" class="doc_header"><code>ResourcePoolBase.poll_scripts</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L92" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolBase.poll_scripts</code>(<strong><code>poll_interval</code></strong>=<em><code>0.1</code></em>, <strong><code>exit_when_empty</code></strong>=<em><code>True</code></em>, <strong><code>num_workers</code></strong>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Poll <code>to_run</code> for scripts and run in parallel on available resources</p>
 
@@ -692,7 +692,7 @@ nb_path: "00_core.ipynb"
 <span class="k">assert</span> <span class="ow">not</span> <span class="p">(</span><span class="n">path_run</span><span class="o">/</span><span class="s1">&#39;script_fail.sh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
 <span class="k">assert</span> <span class="p">(</span><span class="n">path_fail</span><span class="o">/</span><span class="s1">&#39;script_fail.sh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
 <span class="k">assert</span> <span class="p">(</span><span class="n">path_complete</span><span class="o">/</span><span class="s1">&#39;script_succ.sh&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
-<span class="n">test_eq</span><span class="p">((</span><span class="n">path_out</span><span class="o">/</span><span class="s1">&#39;script_succ.sh.stdout&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="s1">&#39;0</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">test_eq</span><span class="p">((</span><span class="n">path_out</span><span class="o">/</span><span class="s1">&#39;script_succ.sh.stdout&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">(),</span> <span class="s1">&#39;[0]</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -719,7 +719,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="ResourcePoolGPU" class="doc_header"><code>class</code> <code>ResourcePoolGPU</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L116" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolGPU</code>(<strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
+<h2 id="ResourcePoolGPU" class="doc_header"><code>class</code> <code>ResourcePoolGPU</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L127" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>ResourcePoolGPU</code>(<strong><code>path</code></strong>) :: <a href="/core.html#ResourcePoolBase"><code>ResourcePoolBase</code></a></p>
 </blockquote>
 <p>Vends locked access to NVIDIA GPUs</p>
 
@@ -776,7 +776,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolGPU.is_available" class="doc_header"><code>ResourcePoolGPU.is_available</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L139" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.is_available</code>(<strong><code>ident</code></strong>)</p>
+<h4 id="ResourcePoolGPU.is_available" class="doc_header"><code>ResourcePoolGPU.is_available</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L150" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.is_available</code>(<strong><code>ident</code></strong>)</p>
 </blockquote>
 <p>If a GPU's used_memory is less than 1G and is running no procs then it will be regarded as available</p>
 
@@ -801,7 +801,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="ResourcePoolGPU.all_ids" class="doc_header"><code>ResourcePoolGPU.all_ids</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L146" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.all_ids</code>()</p>
+<h4 id="ResourcePoolGPU.all_ids" class="doc_header"><code>ResourcePoolGPU.all_ids</code><a href="https://github.com/fastai/fastgpu/tree/master/fastgpu/core.py#L157" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>ResourcePoolGPU.all_ids</code>()</p>
 </blockquote>
 <p>All GPUs</p>
 

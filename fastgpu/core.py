@@ -49,46 +49,57 @@ class ResourcePoolBase():
     def unlock(self,ident): return self._lockpath(ident).unlink() if self._is_locked(ident) else None
     def is_available(self,ident): return not self._is_locked(ident)
     def all_ids(self): raise NotImplementedError
-    def find_next(self): return first(o for o in self.all_ids() if self.is_available(o))
-    def lock_next(self):
-        ident = self.find_next()
-        if ident is None: return
-        self.lock(ident)
-        return ident
+    def find_next(self, n=1):
+        selected = []
+        for i in range(n):
+            ident = first(o for o in self.all_ids() if ((not o in selected) and self.is_available(o)))
+            selected.append(ident)
+        if None in selected:
+            return None
+        else:
+            return selected
+    def lock_next(self, n=1):
+        idents = self.find_next(n)
+        if idents is None: return
+        for ident in idents:
+            self.lock(ident)
+        return idents
 
-    def _launch(self, script, ident, env):
+    def _launch(self, script, idents, env):
         with (self.path/'out'/f'{script.name}.stderr').open("w") as stderr:
             with (self.path/'out'/f'{script.name}.stdout').open("w") as stdout:
                 process = subprocess.Popen(str(script), env=env, stdout=stdout, stderr=stderr)
-                self.lock(ident, process.pid)
+                for ident in idents:
+                    self.lock(ident, process.pid)
                 return process.wait()
 
-    def _run(self, script, ident):
+    def _run(self, script, idents):
         failed = False
         env=copy(os.environ)
-        env['FASTGPU_ID'] = str(ident)
-        try: res = self._launch(script, ident, env=env)
+        env['FASTGPU_ID'] = str(idents)
+        try: res = self._launch(script, idents, env=env)
         except Exception as e: failed = str(e)
         (self.path/'out'/f'{script.name}.exitcode').write_text(failed if failed else str(res))
         dest = self.path/'fail' if failed or res else self.path/'complete'
         finish_name = safe_rename(script, dest)
-        self.unlock(ident)
+        for ident in idents:
+            self.unlock(ident)
 
     def run(self, *args, **kwargs):
         thread = Thread(target=self._run, args=args, kwargs=kwargs)
         thread.start()
 
-    def poll_scripts(self, poll_interval=0.1, exit_when_empty=True):
+    def poll_scripts(self, poll_interval=0.1, exit_when_empty=True, num_workers=1):
         while True:
             sleep(poll_interval)
             script = find_next_script(self.path/'to_run')
             if script is None:
                 if exit_when_empty: break
                 else: continue
-            ident = self.lock_next()
-            if ident is None: continue
+            idents = self.lock_next(num_workers)
+            if idents is None: continue
             run_name = safe_rename(script, self.path/'running')
-            self.run(run_name, ident)
+            self.run(run_name, idents)
 
 # Cell
 add_docs(ResourcePoolBase, "Base class for locked access to list of idents",
@@ -125,7 +136,7 @@ class ResourcePoolGPU(ResourcePoolBase):
         self.ids = L.range(self.devs)
 
     def _launch(self, script, ident, env):
-        env['CUDA_VISIBLE_DEVICES'] = str(self.devs[ident])
+        env['CUDA_VISIBLE_DEVICES'] = str(self.devs[ident])[1:-1]
         return super()._launch(script, ident, env)
 #         with (self.path/'out'/f'{script.name}.stderr').open("w") as stderr:
 #             with (self.path/'out'/f'{script.name}.stdout').open("w") as stdout:
